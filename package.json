@@ -8,8 +8,10 @@
         "@types/node": "12.12.14",
         "@types/react": "16.9.13",
         "@types/react-dom": "16.9.4",
+        "node-command-line": "^1.0.2",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
+        "react-monaco-editor": "^0.32.1",
         "react-scripts": "3.2.0",
         "typescript": "3.7.2"
     },
@@ -18,7 +20,10 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "build-webpack": "webpack --config webpack.config.js"
+        "build-webpack": "webpack --config webpack.config.js",
+        "start-webpack": "webpack-dev-server --open --mode development",
+        "start-script": "node scripts/start.js",
+        "start-re": "react-app-rewired start"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -42,18 +47,24 @@
         "@babel/preset-react": "^7.7.4",
         "@babel/preset-typescript": "^7.7.4",
         "babel-loader": "^8.0.6",
+        "copy-webpack-plugin": "^5.0.5",
         "css-loader": "^3.2.0",
+        "customize-cra": "^0.9.1",
+        "eval": "^0.1.4",
         "file-loader": "^5.0.2",
         "html-loader": "^0.5.5",
-        "html-webpack-plugin": "^3.2.0",
-        "react-monaco-editor": "^0.32.1",
+        "html-webpack-plugin": "4.0.0-alpha.2",
+        "monaco-editor": "^0.18.1",
+        "monaco-editor-webpack-plugin": "^1.7.0",
+        "react-app-rewired": "^2.1.5",
+        "safe-eval": "^0.4.1",
         "source-map-loader": "^0.2.4",
         "style-loader": "^1.0.0",
         "svg-inline-loader": "^0.8.0",
         "ts-loader": "^6.2.1",
         "url-loader": "^2.3.0",
-        "webpack": "^4.41.2",
+        "webpack": "4.41.0",
         "webpack-cli": "^3.3.10",
-        "webpack-dev-server": "^3.9.0"
+        "webpack-dev-server": "3.2.1"
     }
 }

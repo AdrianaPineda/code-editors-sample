@@ -1,0 +1,17 @@
+.Editor {
+    display: flex;
+    flex-direction: column;
+}
+
+.ButtonContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.RunButton,
+.ClearButton {
+    width: 40px;
+    margin: 5px;
+}

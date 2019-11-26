@@ -1,29 +1,24 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.tsx',
+    entry: './src/index',
     mode: "development",
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
     },
+    // devServer: {
+    //     contentBase: "./public",
+    //     hot: true
+    // },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
         extensions: [".ts", ".tsx", ".js"]
     },
     module: {
         rules: [
-            // {
-            //     test: /\.ts(x?)$/,
-            //     exclude: /node_modules/,
-            //     include: path.resolve(__dirname, 'src'),
-            //     use: [
-            //         {
-            //             loader: "ts-loader"
-            //         }
-            //     ]
-            // },
             {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
@@ -39,10 +34,6 @@ module.exports = {
                     }
                 ]
             },
-            // {
-            //     test: /\.svg$/,
-            //     loader: 'svg-inline-loader'
-            // },
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
@@ -59,12 +50,17 @@ module.exports = {
                     }
                 }
             }
+            // {
+            //     test: /\.(png|j?g|svg|gif)?$/,
+            //     use: 'file-loader'
+            // }
         ]
     },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./public/index.html",
             filename: "./public/index.html"
-        })
+        }),
+        new MonacoWebpackPlugin()
     ]
 };

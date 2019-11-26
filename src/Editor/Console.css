@@ -1,0 +1,5 @@
+.Code {
+    border: 1px solid black;
+    min-height: 20px;
+    white-space: pre-wrap;
+}
