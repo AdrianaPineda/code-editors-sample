@@ -1,36 +1,59 @@
 {
-  "name": "sample-doc-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@types/jest": "24.0.23",
-    "@types/node": "12.12.14",
-    "@types/react": "16.9.13",
-    "@types/react-dom": "16.9.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0",
-    "typescript": "3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "sample-doc-app",
+    "version": "0.1.0",
+    "private": true,
+    "main": "index.tsx",
+    "dependencies": {
+        "@types/jest": "24.0.23",
+        "@types/node": "12.12.14",
+        "@types/react": "16.9.13",
+        "@types/react-dom": "16.9.4",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-scripts": "3.2.0",
+        "typescript": "3.7.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "build-webpack": "webpack --config webpack.config.js"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.7.4",
+        "@babel/plugin-transform-react-jsx": "^7.7.4",
+        "@babel/preset-env": "^7.7.4",
+        "@babel/preset-react": "^7.7.4",
+        "@babel/preset-typescript": "^7.7.4",
+        "babel-loader": "^8.0.6",
+        "css-loader": "^3.2.0",
+        "file-loader": "^5.0.2",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "react-monaco-editor": "^0.32.1",
+        "source-map-loader": "^0.2.4",
+        "style-loader": "^1.0.0",
+        "svg-inline-loader": "^0.8.0",
+        "ts-loader": "^6.2.1",
+        "url-loader": "^2.3.0",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
+    }
 }
