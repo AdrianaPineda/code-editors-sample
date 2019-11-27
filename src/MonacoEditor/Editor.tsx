@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { SimpleTypescriptEditor } from "./SimpleTypescriptEditor";
-import { Console } from "./Console";
+import { CodeMirrorComponent } from "../CodeMirrorEditor/CodeMirrorEditor";
+import { Console } from "../Common/Console";
 
 import "./Editor.css";
 
@@ -44,6 +45,7 @@ export default class Editor extends PureComponent {
     render() {
         return (
             <div className="Editor">
+                Monaco:
                 <SimpleTypescriptEditor
                     content={this.state.content}
                     width="100%"

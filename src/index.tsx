@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import Editor from "./Editor/Editor";
+import Editor from "./MonacoEditor/Editor";
 
 // ReactDOM.render(<App />, document.getElementById("root"));
 ReactDOM.render(<Editor />, document.getElementById("root"));

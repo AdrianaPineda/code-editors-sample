@@ -1,5 +1,5 @@
 import React from 'react';
-import Editor from "../Editor/Editor";
+import Editor from "../MonacoEditor/Editor";
 
 export default {
     title: 'Editor',
