@@ -13,10 +13,6 @@ export class MonacoEditorComponent extends Component<MonacoEditorProps> {
         height: "200px"
     };
 
-    constructor(props: any) {
-        super(props);
-    }
-
     onChange(newValue: any, e: any) {
         console.log("onChange", newValue, e);
         this.props.onChange(newValue);
