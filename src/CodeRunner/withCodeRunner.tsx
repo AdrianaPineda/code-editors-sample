@@ -26,7 +26,7 @@ console.log("Hello there");
 export function withCodeRunner<T extends WithCodeRunnerProps>(
     WrappedComponent: React.ComponentType<T>
 ) {
-    return class ComponentWithCodeRunner extends PureComponent<T> {
+    return class ComponentWithCodeRunner extends PureComponent {
         state = {
             content: code,
             consoleContent: ""
@@ -48,7 +48,7 @@ export function withCodeRunner<T extends WithCodeRunnerProps>(
             return (
                 <div className="Editor">
                     <WrappedComponent
-                        {...this.props}
+                        {...(this.props as T)}
                         content={this.state.content}
                         onChange={this.onEditorContentChange}
                     />
