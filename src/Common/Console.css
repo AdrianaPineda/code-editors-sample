@@ -1,5 +1,10 @@
-.Code {
+.CodeContainer {
     border: 1px solid black;
+    width: 100%;
+}
+
+.Code {
+    display: flex;
     min-height: 20px;
     white-space: pre-wrap;
 }

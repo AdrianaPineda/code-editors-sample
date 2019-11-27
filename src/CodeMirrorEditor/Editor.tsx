@@ -49,7 +49,8 @@ export default class CodeMirrorEditor extends PureComponent {
                     options={{
                         mode: "javascript",
                         theme: "material",
-                        lineNumbers: true
+                        lineNumbers: true,
+                        readOnly: false
                     }}
                     onChange={this.onEditorContentChange}
                 />

@@ -6,7 +6,11 @@ interface ConsoleProps {
 }
 
 function Console(props: ConsoleProps) {
-    return <code className="Code">{props.content}</code>;
+    return (
+        <div className="CodeContainer">
+            <code className="Code">{props.content}</code>
+        </div>
+    );
 }
 
 export { Console };

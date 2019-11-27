@@ -14,15 +14,17 @@ export interface CodeMirrorComponentProps {
 export class CodeMirrorComponent extends Component<CodeMirrorComponentProps> {
     render() {
         return (
-            <CodeMirror
-                className="Editor"
-                value={this.props.value}
-                options={this.props.options}
-                onBeforeChange={(editor, data, value) => {}}
-                onChange={(editor, data, value) => {
-                    this.props.onChange(value);
-                }}
-            />
+            <div>
+                <CodeMirror
+                    className="Editor"
+                    value={this.props.value}
+                    options={this.props.options}
+                    onBeforeChange={(editor, data, value) => {
+                        this.props.onChange(value);
+                    }}
+                    onChange={(editor, data, value) => {}}
+                />
+            </div>
         );
     }
 }
