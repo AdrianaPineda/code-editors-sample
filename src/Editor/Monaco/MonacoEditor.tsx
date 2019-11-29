@@ -10,7 +10,7 @@ export type MonacoEditorProps = {
 export class MonacoEditorComponent extends Component<MonacoEditorProps> {
     static defaultProps = {
         width: "100%",
-        height: "200px"
+        height: "450px"
     };
 
     onChange(newValue: any, e: any) {

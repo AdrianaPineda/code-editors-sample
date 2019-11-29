@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { WithCodeRunnerProps } from "./withCodeRunner.definitions";
 import { Console } from "./Console";
+import executeCode from "../utils/execute";
 
 import "./withCodeRunner.css";
 
@@ -20,7 +21,13 @@ const john:Employee = {
     // contractor:true
 }
 
-console.log("Hello there");
+console.log("Hello");
+
+function printJohn(): Employee {
+    return john;
+}
+
+console.log(printJohn());
 `;
 
 export function withCodeRunner<T extends WithCodeRunnerProps>(
@@ -37,7 +44,8 @@ export function withCodeRunner<T extends WithCodeRunnerProps>(
         };
 
         onRunClicked = () => {
-            this.setState({ consoleContent: "test\ntest2\ntest3" });
+            executeCode(this.state.content);
+            // this.setState({ consoleContent: result });
         };
 
         onClear = () => {
@@ -59,11 +67,11 @@ export function withCodeRunner<T extends WithCodeRunnerProps>(
                         >
                             Run
                         </button>
-                        <button className="ClearButton" onClick={this.onClear}>
+                        {/* <button className="ClearButton" onClick={this.onClear}>
                             Clear
-                        </button>
+                        </button> */}
                     </div>
-                    <Console content={this.state.consoleContent} />
+                    {/* <Console content={this.state.consoleContent} /> */}
                 </div>
             );
         }

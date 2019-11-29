@@ -6,7 +6,8 @@ module.exports = function override(config, env) {
     }
 
     config.plugins.push(
-        new MonacoWebpackPlugin()
+        new MonacoWebpackPlugin(),
+        "@babel/plugin-transform-runtime"
     );
 
     return config;
