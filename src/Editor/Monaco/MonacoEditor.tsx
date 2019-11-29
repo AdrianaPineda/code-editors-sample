@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import MonacoEditor from "react-monaco-editor";
 import { WithCodeRunnerProps } from "../../CodeRunner/withCodeRunner.definitions";
+import { withCodeRunner } from "../../CodeRunner/withCodeRunner";
 
-export type MonacoEditorProps = {
-    width: number | string;
-    height: number | string;
-} & WithCodeRunnerProps;
+export interface MonacoEditorProps extends WithCodeRunnerProps {
+    width?: number | string;
+    height?: number | string;
+}
 
 export class MonacoEditorComponent extends Component<MonacoEditorProps> {
     static defaultProps = {

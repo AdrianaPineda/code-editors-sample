@@ -1,41 +1,29 @@
 import React, { PureComponent } from "react";
-import { WithCodeRunnerProps } from "./withCodeRunner.definitions";
+import {
+    WithCodeRunnerProps,
+    DropdownKeys,
+    DropdownOptions
+} from "./withCodeRunner.definitions";
 import { Console } from "./Console";
+import Dropdown, { Option } from "react-dropdown";
+import "react-dropdown/style.css";
 import executeCode from "../utils/execute";
 
 import "./withCodeRunner.css";
 
-const code = `// Define Typescript Interface Employee
-interface Employee {
-    firstName: String;
-    lastName: String;
-    contractor?: Boolean;
-}
+/**
+ * Remove from T the keys that are in common with K
+ */
+type Optionalize<T extends K, K> = Omit<T, keyof K>;
 
-// Use Typescript Interface Employee.
-// This should show you an error on john
-// as required attribute lastName is missing
-const john:Employee = {
-    firstName:"John",
-    lastName:"Smith"
-    // contractor:true
-}
-
-console.log("Hello");
-
-function printJohn(): Employee {
-    return john;
-}
-
-console.log(printJohn());
-`;
-
-export function withCodeRunner<T extends WithCodeRunnerProps>(
-    WrappedComponent: React.ComponentType<T>
-) {
-    return class ComponentWithCodeRunner extends PureComponent {
+export function withCodeRunner<
+    T extends WithCodeRunnerProps = WithCodeRunnerProps
+>(WrappedComponent: React.ComponentType<T>, dropdownOptions: DropdownOptions) {
+    return class ComponentWithCodeRunner extends PureComponent<
+        Optionalize<T, WithCodeRunnerProps>
+    > {
         state = {
-            content: code,
+            content: dropdownOptions[DropdownKeys.typescript],
             consoleContent: ""
         };
 
@@ -45,16 +33,26 @@ export function withCodeRunner<T extends WithCodeRunnerProps>(
 
         onRunClicked = () => {
             executeCode(this.state.content);
-            // this.setState({ consoleContent: result });
         };
 
         onClear = () => {
             this.setState({ consoleContent: "" });
         };
 
+        onDropdownChange = (arg: Option) => {
+            this.setState({
+                content: dropdownOptions[arg.value as DropdownKeys]
+            });
+        };
+
         render() {
             return (
                 <div className="Editor">
+                    <Dropdown
+                        options={Object.keys(dropdownOptions)}
+                        onChange={this.onDropdownChange}
+                        value="typescript"
+                    />
                     <WrappedComponent
                         {...(this.props as T)}
                         content={this.state.content}

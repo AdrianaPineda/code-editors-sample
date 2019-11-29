@@ -7,9 +7,9 @@ import "codemirror/theme/material.css";
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/javascript/javascript";
 
-export type CodeMirrorEditorProps = {
+export interface CodeMirrorEditorProps extends WithCodeRunnerProps {
     options?: any;
-} & WithCodeRunnerProps;
+}
 
 export class CodeMirrorEditorComponent extends Component<
     CodeMirrorEditorProps
